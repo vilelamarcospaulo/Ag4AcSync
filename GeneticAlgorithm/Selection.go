@@ -1,9 +1,11 @@
 package GeneticAlgorithm
 
-func Rodeio() Individual {
+import (
+	"math/rand"
+)
 
-}
+func (ag GeneticAlgorithm) SelectRandomElit() int {
+	index := rand.Intn(ag.ElitismSize)
 
-func Roleta() Individual {
-
+	return index
 }
