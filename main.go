@@ -15,6 +15,8 @@ func Exec(n int) {
 	var BestIndividual *GeneticAlgorithm.Individual
 
 	for e := 0; e < n; e++ {
+		fmt.Println("EXECUÇÃO: ", e+1)
+
 		Ag := GeneticAlgorithm.GeneticAlgorithm{}
 		Ag.Init(40, 100, .016, .1, 2)
 		Ag.Run()
@@ -60,7 +62,7 @@ func main() {
 
 	for i := 0; i < 5; i++ {
 		wg.Add(1)
-		go Exec(36)
+		go Exec(20)
 	}
 
 	wg.Wait()

@@ -2,7 +2,6 @@ package GeneticAlgorithm
 
 import (
 	"CellularAutomaton/ac"
-	"fmt"
 	"math"
 	"math/rand"
 )
@@ -94,7 +93,7 @@ func (ind *Individual) CalcFitness(grid [][]byte) int {
 
 		ind.Fitness += CheckAlternate(CellularAutomaton)
 		if ind.Fitness == len(grid) {
-			fmt.Println("DEU RUIMMMM")
+			// fmt.Println("DEU RUIMMMM")
 			//fmt.Println(**CellularAutomaton.Grid.PreviusCells)
 			//fmt.Println(**CellularAutomaton.Grid.Cells)
 		}
