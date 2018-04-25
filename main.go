@@ -18,7 +18,7 @@ func Exec(n int) {
 		fmt.Println("EXECUÇÃO: ", e+1)
 
 		Ag := GeneticAlgorithm.GeneticAlgorithm{}
-		Ag.Init(40, 100, .016, .1, 2)
+		Ag.Init(100, 100, .016, .1, 2)
 		Ag.Run()
 
 		grids := Ag.GenerateGrids(5000, true)
@@ -60,9 +60,9 @@ func main() {
 	ranges = [11]float64{50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0}
 	numbers = make([]int, 11)
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 1; i++ {
 		wg.Add(1)
-		go Exec(20)
+		go Exec(1)
 	}
 
 	wg.Wait()

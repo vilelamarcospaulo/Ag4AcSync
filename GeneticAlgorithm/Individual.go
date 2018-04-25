@@ -50,9 +50,9 @@ func toInteger(a []byte) int {
 }
 
 func CheckAlternate(CellularAutomaton ac.CelullarAutomaton) int {
-	pprevius := **CellularAutomaton.Grid.PPCells
-	previus := **CellularAutomaton.Grid.PCells
-	last := **CellularAutomaton.Grid.Cells
+	pprevius := CellularAutomaton.Grid.PPCells
+	previus := CellularAutomaton.Grid.PCells
+	last := CellularAutomaton.Grid.Cells
 
 	pattern := last[0]
 	for _, b := range last {
@@ -92,11 +92,6 @@ func (ind *Individual) CalcFitness(grid [][]byte) int {
 		CellularAutomaton.Run()
 
 		ind.Fitness += CheckAlternate(CellularAutomaton)
-		if ind.Fitness == len(grid) {
-			// fmt.Println("DEU RUIMMMM")
-			//fmt.Println(**CellularAutomaton.Grid.PreviusCells)
-			//fmt.Println(**CellularAutomaton.Grid.Cells)
-		}
 	}
 
 	return ind.Fitness

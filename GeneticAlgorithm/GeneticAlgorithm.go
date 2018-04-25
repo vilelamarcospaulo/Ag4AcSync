@@ -38,8 +38,8 @@ func (ag *GeneticAlgorithm) Init(generations int, population int, mutationProbab
 		ag.Individuals[i].Init(radius, i)
 		ag.Individuals[i].CalcFitness(grids)
 
-		//fmt.Print("CALCULANDO FITNESS ELEMENTO: ", i, "||", *ag.Individuals[i].DNA)
-		//fmt.Println("||", ag.Individuals[i].CalcFitness(grids))
+		// fmt.Println("CALCULANDO FITNESS ELEMENTO: ", i, "||")
+		// fmt.Println("||", ag.Individuals[i].CalcFitness(grids))
 	}
 	sort.Sort(IndList(ag.Individuals))
 
@@ -104,7 +104,7 @@ func (ag *GeneticAlgorithm) GenerateSons(i int, j int, grids [][]byte) {
 	son2.CalcFitness(grids)
 	//fmt.Println("||", son2.Fitness)
 
-	// fmt.Println(father1.DNA, father1.Fitness)
+	// xxfmt.Println(father1.DNA, father1.Fitness)
 	// fmt.Println(father2.DNA, father2.Fitness)
 	// fmt.Println(son1.DNA, son1.Fitness)
 	// fmt.Println(son2.DNA, son2.Fitness)
