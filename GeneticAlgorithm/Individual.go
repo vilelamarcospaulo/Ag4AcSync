@@ -24,9 +24,10 @@ func (ind *Individual) Init(radius int, position int) {
 		return
 	}
 
+	//uniforme
 	for i := 0; i < size; i++ {
 		dice := rand.Intn(100)
-		if dice < position {
+		if dice < position { // 50 || position { mudar aqui
 			dna[i] = 1
 		} else {
 			dna[i] = 0

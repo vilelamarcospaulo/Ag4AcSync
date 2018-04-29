@@ -1,7 +1,6 @@
 package GeneticAlgorithm
 
 import (
-	"fmt"
 	"math/rand"
 	"sort"
 )
@@ -31,7 +30,7 @@ func (ag *GeneticAlgorithm) Init(generations int, population int, mutationProbab
 	ag.Individuals = make([]Individual, ag.PopulationSize) //TODO :: RANDOM POPULATION
 	ag.Childrens = make([]Individual, ag.NumberChildrens)
 
-	fmt.Println("GERANDO POPULACAO INICIAL")
+	//fmt.Println("GERANDO POPULACAO INICIAL")
 	grids := ag.GenerateGrids(100, false)
 
 	for i := 0; i < ag.PopulationSize; i++ {
@@ -62,6 +61,7 @@ func (ag *GeneticAlgorithm) GenerateGrids(size int, random bool) [][]byte {
 		grids[i] = make([]byte, 149)
 
 		for j := 0; j < 149; j++ {
+			//uniforme
 			if random {
 				grids[i][j] = Distrib(50)
 				continue
@@ -96,11 +96,11 @@ func (ag *GeneticAlgorithm) GenerateSons(i int, j int, grids [][]byte) {
 	son1.Mutation(ag.MutationProbability)
 	son2.Mutation(ag.MutationProbability)
 
-	//fmt.Print("GERACAO: ", ag.CurrentGeneration, " CALCULANDO FITNESS FILHO: ", i, "||", *son1.DNA)
+	//fmt.Print("GERACAO: ", ag.CurrentGeneration, " CALCULANDO FITNESS FILHO: ", i, "||")
 	son1.CalcFitness(grids)
 	//fmt.Println("||", son1.Fitness)
 
-	//fmt.Print("GERACAO: ", ag.CurrentGeneration, " CALCULANDO FITNESS FILHO: ", j, "||", *son2.DNA)
+	//fmt.Print("GERACAO: ", ag.CurrentGeneration, " CALCULANDO FITNESS FILHO: ", j, "||")
 	son2.CalcFitness(grids)
 	//fmt.Println("||", son2.Fitness)
 
@@ -116,7 +116,7 @@ func (ag *GeneticAlgorithm) NextGeneration() {
 
 	grids := ag.GenerateGrids(100, false)
 
-	fmt.Println("GERACAO:", ag.CurrentGeneration)
+	//fmt.Println("GERACAO:", ag.CurrentGeneration)
 
 	for i := 0; i < ag.NumberChildrens; i += 2 {
 		ag.GenerateSons(i, i+1, grids)
